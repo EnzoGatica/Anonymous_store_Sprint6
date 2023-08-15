@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_cell"
+    app:startDestination="@id/fragment_ListadoCelulares">
+
+    <fragment
+        android:id="@+id/fragment_ListadoCelulares"
+        android:name="com.example.anonymous_store_sprint6.vistas.Fragment_ListadoCelulares"
+        android:label="fragment_listado_celulares"
+        tools:layout="@layout/fragment_listado_celulares" />
+</navigation>
