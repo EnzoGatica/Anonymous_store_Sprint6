@@ -49,33 +49,35 @@ class Fragment_Detalle_Telefonos : Fragment() {
                     binding.txtCredit.text = "ACEPTA CREDITO"
                 }
                 binding.imgDetalle.load(it.image)
+
+
+                binding.editTextEmailAsunto.setText("Consulta: ${it.name} id: ${it.id}")
+                binding.editTextEmailBody.setText(
+                    "Hola \n" +
+                            " Vi la propiedad ${it.name} de código ${it.id} y me gustaría \n " +
+                            "que me contactaran a este correo o " +
+                            "al siguiente número Quedo atento."
+                )
             }
 
         }
 
         //"buttonEmailMe" es el id del boton
-        binding.editTextEmailBody.setText(
-            "Hola \n" +
-                    " Vi la propiedad {PRODUCT_NAME} de código {PRODUCT_ID} y me gustaría \n " +
-                    "que me contactaran a este correo o " +
-                    "al siguiente número Quedo atento."
-        )
+
 
         binding.buttonEmailMe!!.setOnClickListener {
             //mail cliente
-            val email = "miemail@gmail.com"
-            val intentEmail = Intent(Intent.ACTION_SEND, Uri.parse(email))
+            val destinatario = "info@novaera.cl"
+            val intentEmail = Intent(Intent.ACTION_SEND, Uri.parse(destinatario))
             intentEmail.type = "plain/text"
+            //Donde llegan
+            intentEmail.putExtra(Intent.EXTRA_EMAIL,arrayOf(destinatario))
             //Titulo Mail
-            intentEmail.putExtra(Intent.EXTRA_SUBJECT, binding.editTextEmail.text.toString())
+            intentEmail.putExtra(Intent.EXTRA_SUBJECT, binding.editTextEmailAsunto.text.toString())
             //Body Mail
             intentEmail.putExtra(Intent.EXTRA_TEXT, binding.editTextEmailBody.text.toString())
-            //correo a donde llegan
-            intentEmail.putExtra(
-                Intent.EXTRA_EMAIL,
-                arrayOf("correo@gmail.com", "otrocorreo@gmail.com")
-            )
-            startActivity(Intent.createChooser(intentEmail, "Elige cliente de correo"))
+
+            startActivity(Intent.createChooser(intentEmail, "Consulta producto"))
         }
 
         return binding.root
