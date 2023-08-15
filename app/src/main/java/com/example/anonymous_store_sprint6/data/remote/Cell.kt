@@ -10,7 +10,7 @@ package com.example.anonymous_store_sprint6.data.remote
  */
 
 data class Cell(
-    val id: String,
+    val id: Int,
     val name: String,
     val price: Int,
     val image: String

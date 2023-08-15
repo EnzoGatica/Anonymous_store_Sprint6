@@ -1,9 +1,12 @@
 package com.example.anonymous_store_sprint6.vistas
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.anonymous_store_sprint6.R
 import com.example.anonymous_store_sprint6.data.local.TelefonoEntity
 import com.example.anonymous_store_sprint6.databinding.ItemCellBinding
 
@@ -36,10 +39,14 @@ class AdapterCell: RecyclerView.Adapter<AdapterCell.ItemTelefonoViewHolder>() {
     class ItemTelefonoViewHolder(val celu : ItemCellBinding): RecyclerView.ViewHolder(celu.root) {
 
         fun bind(item_celu: TelefonoEntity){
+            val bundle = Bundle()
             celu.txtNombre.text = item_celu.name
             celu.txtPrecio.text = "$ " + item_celu.price.toString()
             celu.imgCell.load(item_celu.image)
-
+            celu.cvItem.setOnClickListener{
+                bundle.putInt("id", item_celu.id)
+                Navigation.findNavController(celu.root).navigate(R.id.action_fragment_ListadoCelulares_to_fragment_Detalle_Telefono, bundle)
+            }
         }
 
     }
