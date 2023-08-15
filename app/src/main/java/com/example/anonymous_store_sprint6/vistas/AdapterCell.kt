@@ -37,8 +37,9 @@ class AdapterCell: RecyclerView.Adapter<AdapterCell.ItemTelefonoViewHolder>() {
 
         fun bind(item_celu: TelefonoEntity){
             celu.txtNombre.text = item_celu.name
-            celu.txtPrecio.text = item_celu.price.toString()
+            celu.txtPrecio.text = "$ " + item_celu.price.toString()
             celu.imgCell.load(item_celu.image)
+
         }
 
     }
