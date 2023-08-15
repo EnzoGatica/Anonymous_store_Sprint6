@@ -8,14 +8,14 @@ class CellRetroFit {
 
         private const val BASE_URL = "https://my-json-server.typicode.com/Himuravidal/FakeAPIdata/"
 
-        fun gedRetroFitCell(): CallApi{
+        fun gedRetroFitCell(): CellApi{
 
             val mRetrofit = Retrofit.Builder()
                 .baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 
-            return mRetrofit.create(CallApi::class.java)
+            return mRetrofit.create(CellApi::class.java)
 
         }
 
