@@ -18,5 +18,9 @@
         android:id="@+id/fragment_Detalle_Telefono"
         android:name="com.example.anonymous_store_sprint6.vistas.Fragment_Detalle_Telefonos"
         android:label="fragment_detalle_telefono"
-        tools:layout="@layout/fragment_detalle_telefono" />
+        tools:layout="@layout/fragment_detalle_telefono" >
+        <action
+            android:id="@+id/action_fragment_Detalle_Telefono_to_fragment_ListadoCelulares"
+            app:destination="@id/fragment_ListadoCelulares" />
+    </fragment>
 </navigation>

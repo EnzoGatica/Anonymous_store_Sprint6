@@ -3,13 +3,14 @@ package com.example.anonymous_store_sprint6.vistas
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import coil.load
+import com.example.anonymous_store_sprint6.R
 import com.example.anonymous_store_sprint6.databinding.FragmentDetalleTelefonoBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -50,20 +51,29 @@ class Fragment_Detalle_Telefonos : Fragment() {
                 }
                 binding.imgDetalle.load(it.image)
 
+                binding.floatingButton.setOnClickListener{
 
-                binding.editTextEmailAsunto.setText("Consulta: ${it.name} id: ${it.id}")
-                binding.editTextEmailBody.setText(
-                    "Hola \n" +
-                            " Vi la propiedad ${it.name} de código ${it.id} y me gustaría \n " +
-                            "que me contactaran a este correo o " +
-                            "al siguiente número Quedo atento."
-                )
+                }
+
+                val textoAsunto = "Consulta: ${it.name} id: ${it.id}"
+                val textoBody = "Hola \n  Vi la propiedad ${it.name} de código ${it.id} y me gustaría \n que me contactaran a este correo o al siguiente número Quedo atento."
+                binding.editTextEmailAsunto.setText(textoAsunto)
+                binding.editTextEmailBody.setText(textoBody)
+
+                binding.floatingButton.setOnClickListener{
+
+                    if(binding.cardViewEmail.visibility == View.GONE){
+                        binding.cardViewEmail.visibility = View.VISIBLE
+                    }else{
+                        binding.cardViewEmail.visibility = View.GONE
+                    }
+
+                }
             }
 
         }
 
         //"buttonEmailMe" es el id del boton
-
 
         binding.buttonEmailMe!!.setOnClickListener {
             //mail cliente
@@ -78,7 +88,14 @@ class Fragment_Detalle_Telefonos : Fragment() {
             intentEmail.putExtra(Intent.EXTRA_TEXT, binding.editTextEmailBody.text.toString())
 
             startActivity(Intent.createChooser(intentEmail, "Consulta producto"))
+
+            findNavController().navigate(R.id.action_fragment_Detalle_Telefono_to_fragment_ListadoCelulares)
+
         }
+
+
+
+
 
         return binding.root
     }
