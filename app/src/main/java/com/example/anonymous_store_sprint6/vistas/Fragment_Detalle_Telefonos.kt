@@ -41,8 +41,8 @@ class Fragment_Detalle_Telefonos : Fragment() {
         cellVM.detalleLiveData(param1).observe(viewLifecycleOwner){
             if(it != null) {
                 binding.txtNombreDetalle.text = it.name
-                binding.txtPrecioDetalle.text = it.price.toString()
-                binding.txtUltimoPrecioDetalle.text = it.lastPrice.toString()
+                binding.txtPrecioDetalle.text = "Ultimo precio: $" +  it.price.toString()
+                binding.txtUltimoPrecioDetalle.text = "Precio Actual: $" +  it.lastPrice.toString()
                 binding.txtDescripcionDetalle.text = it.description
                 if (!it.credit){
                     binding.txtCredit.text = "SOLO EFECTIVO"
@@ -56,7 +56,7 @@ class Fragment_Detalle_Telefonos : Fragment() {
                 }
 
                 val textoAsunto = "Consulta: ${it.name} id: ${it.id}"
-                val textoBody = "Hola \n  Vi la propiedad ${it.name} de código ${it.id} y me gustaría \n que me contactaran a este correo o al siguiente número Quedo atento."
+                val textoBody = "Hola \n  Vi la propiedad ${it.name} de código ${it.id} y me gustaría \n que me contactaran a este correo o al siguiente número:_____ \n Quedo atento."
                 binding.editTextEmailAsunto.setText(textoAsunto)
                 binding.editTextEmailBody.setText(textoBody)
 
