@@ -28,7 +28,6 @@ class Fragment_ListadoCelulares : Fragment() {
         initAdapter()
         cellVM.getAllTelefonos()
 
-
         return binding.root
     }
 
