@@ -41,8 +41,8 @@ class Fragment_Detalle_Telefonos : Fragment() {
         cellVM.detalleLiveData(param1).observe(viewLifecycleOwner){
             if(it != null) {
                 binding.txtNombreDetalle.text = it.name
-                binding.txtPrecioDetalle.text = "Ultimo precio: $" +  it.price.toString()
-                binding.txtUltimoPrecioDetalle.text = "Precio Actual: $" +  it.lastPrice.toString()
+                binding.txtUltimoPrecioDetalle.text = "Ultimo precio: $" +  it.lastPrice.toString()
+                binding.txtPrecioDetalle.text = "Precio Actual: $" +  it.price.toString()
                 binding.txtDescripcionDetalle.text = it.description
                 if (!it.credit){
                     binding.txtCredit.text = "SOLO EFECTIVO"
