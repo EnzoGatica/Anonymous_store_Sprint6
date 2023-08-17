@@ -40,7 +40,7 @@ class RoomDataBaseTest {
     }
 
     @Test
-    fun insertBreeds_empty() = runBlocking {
+    fun insertTelefono_empty() = runBlocking {
         // Given
         val telefonoList = listOf<TelefonoEntity>()
 
@@ -60,7 +60,7 @@ class RoomDataBaseTest {
     }
 
     @Test
-    fun insertBreeds_happyCase_1element() = runBlocking {
+    fun insertTelefono_happyCase_1element() = runBlocking {
         // Given
         val telefonoList = listOf(TelefonoEntity(1,"Samsung",1000,"cell_image.jpg"))
 
@@ -76,7 +76,7 @@ class RoomDataBaseTest {
     }
 
     @Test
-    fun insertBreeds_happyCase_3elements() = runBlocking {
+    fun insertTelefono_happyCase_3elements() = runBlocking {
         // Given
         val telefonoList = listOf(
             TelefonoEntity(1,"Samsung",1000,"cell_image1.jpg"),
